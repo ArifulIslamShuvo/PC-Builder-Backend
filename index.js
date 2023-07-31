@@ -35,7 +35,12 @@ async function run() {
       res.send(books);
     });
 
-   
+    //single
+    app.get("/products/:id", async (req, res) => {
+      const id = req.params.id;
+      const result = await PcBuilderProductsCollection.findOne({ _id: new ObjectId(id) });
+      res.send(result);
+    });
 
    
   } finally {
