@@ -28,7 +28,15 @@ async function run() {
     const PcBuilderProductsCollection = client.db("PC-Builder").collection("products");
     console.log(" connect successfully! ");
 
-    
+    // All Producl
+    app.get("/products", async (req, res) => {
+      const cursor = PcBuilderProductsCollection.find({});
+      const books = await cursor.toArray();
+      res.send(books);
+    });
+
+   
+
    
   } finally {
   }
